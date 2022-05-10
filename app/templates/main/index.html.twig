@@ -1,1 +1,11 @@
-<h1>Hello World !</h1>
+<h1>Personnes</h1>
+
+<table border="1">
+
+	{% for personne in personnes %}
+		<tr>
+			<td>{{ personne.prenom }}</td>
+			<td>{{ personne.nom }}</td>
+		</tr>
+	{% endfor %}
+</table>
