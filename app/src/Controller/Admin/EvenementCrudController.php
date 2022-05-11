@@ -23,7 +23,7 @@ class EvenementCrudController extends AbstractCrudController
             ->setFormTypeOptions([
                 'by_reference' => true,
             ])
-            ->autocomplete(),            
+            ->autocomplete(),
             AssociationField::new('personne')
             ->setFormTypeOptions([
                 'by_reference' => true,
@@ -36,8 +36,6 @@ class EvenementCrudController extends AbstractCrudController
             ->autocomplete(),
             DateField::new('date'),
             TextField::new('description'),
-
-
         ];
     }
 }
