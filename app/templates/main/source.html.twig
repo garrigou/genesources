@@ -1,3 +1,6 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
 <h1>Source : {{ source.nom }} [{{ source.type }}]</h1>
 
 <h2>{{ source.date|date("d/m/Y") }}</h2>
@@ -20,3 +23,6 @@
 		</tr>
 	{% endfor %}
 </table>
+
+
+{% endblock %}
