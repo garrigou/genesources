@@ -1,0 +1,5 @@
+composer-install: ## Composer install
+	$(EXEC_SYMFONY) composer install
+
+composer-update: ## Composer update
+	$(EXEC_SYMFONY) composer update

@@ -1,0 +1,5 @@
+doctrine-database-create: ## Création de la BD
+	$(EXEC_SYMFONY_BIN_CONSOLE) doctrine:database:create
+
+doctrine-schema-update: ## Mise à niveau des tables
+	$(EXEC_SYMFONY_BIN_CONSOLE) doctrine:schema:update --force

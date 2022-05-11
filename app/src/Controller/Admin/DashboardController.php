@@ -2,8 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Evenement;
 use App\Entity\Personne;
 use App\Entity\Source;
+use App\Entity\TypeEvenement;
+use App\Entity\TypeSource;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -44,6 +47,9 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToCrud('Personnes', 'fa fa-person', Personne::class);
-        yield MenuItem::linkToCrud('Sources', 'fa fa-list', Source::class);
+        yield MenuItem::linkToCrud('Sources', 'fa fa-book', Source::class);
+        yield MenuItem::linkToCrud('Type de sources', 'fa fa-list', TypeSource::class);
+        yield MenuItem::linkToCrud('Type d\'évenement ', 'fa fa-train', TypeEvenement::class);
+        yield MenuItem::linkToCrud('Evénement ', 'fa fa-calendar', Evenement::class);
     }
 }

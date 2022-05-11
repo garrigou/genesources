@@ -6,3 +6,5 @@ include ./makefiles/Makefile.help
 include ./makefiles/Makefile.utils
 include ./makefiles/Makefile.docker
 include ./makefiles/Makefile.symfony
+include ./makefiles/Makefile.composer
+include ./makefiles/Makefile.doctrine
