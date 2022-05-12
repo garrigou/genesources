@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Personne;
 use App\Entity\Source;
 use App\Repository\PersonneRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,12 +22,21 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/source/{id}', name: 'index')]
+    #[Route('/source/{id}', name: 'source')]
     #[ParamConverter('source', class: 'App\Entity\Source')]
     public function source(Source $source): Response
     {
         return $this->render('main/source.html.twig', [
             'source' => $source
+        ]);
+    }
+
+    #[Route('/personne/{id}', name: 'personne')]
+    #[ParamConverter('personne', class: 'App\Entity\Personne')]
+    public function personne(Personne $personne): Response
+    {
+        return $this->render('main/personne.html.twig', [
+            'personne' => $personne
         ]);
     }
 }

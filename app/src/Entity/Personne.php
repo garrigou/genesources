@@ -30,6 +30,12 @@ class Personne
     #[ORM\Column(type: 'date', nullable: true)]
     private $dateDeces;
 
+    #[ORM\ManyToOne(targetEntity: self::class)]
+    private $pere;
+
+    #[ORM\ManyToOne(targetEntity: self::class)]
+    private $mere;
+
     public function __construct()
     {
         $this->evenements = new ArrayCollection();
@@ -121,6 +127,30 @@ class Personne
     public function setDateDeces(?\DateTimeInterface $dateDeces): self
     {
         $this->dateDeces = $dateDeces;
+
+        return $this;
+    }
+
+    public function getPere(): ?self
+    {
+        return $this->pere;
+    }
+
+    public function setPere(?self $pere): self
+    {
+        $this->pere = $pere;
+
+        return $this;
+    }
+
+    public function getMere(): ?self
+    {
+        return $this->mere;
+    }
+
+    public function setMere(?self $mere): self
+    {
+        $this->mere = $mere;
 
         return $this;
     }

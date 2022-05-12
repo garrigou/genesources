@@ -1,29 +1,6 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<h1>Source : {{ source.nom }} [{{ source.type }}]</h1>
-
-<h2>{{ source.date|date("d/m/Y") }}</h2>
-
-<br>
-<a href="{{ source.lien }}">Lien permanent</a>
-<br>
-<br>
-[{{ source.cote }}]
-<br>
-<br>
-<table border="1">
-
-	{% for evenement in source.evenements|sort((a, b) => a.personne <=> b.personne) %}
-		<tr>
-		    <td>{{ evenement.date|date("d/m/Y") }}</td>
-		    <td>{{ evenement.personne }}</td>
-			<td>{{ evenement.description }}</td>
-			<td>{{ evenement.type }}</td>
-		</tr>
-	{% endfor %}
-</table>
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
