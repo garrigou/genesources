@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+
 class PersonneCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -14,7 +15,7 @@ class PersonneCrudController extends AbstractCrudController
         return Personne::class;
     }
 
-  
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -31,8 +32,7 @@ class PersonneCrudController extends AbstractCrudController
                 ->setFormTypeOptions([
                     'by_reference' => true,
                 ])
-                ->autocomplete(),                
+                ->autocomplete(),
         ];
     }
-    
 }

@@ -63,4 +63,33 @@ class PersonneRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function getFratrie($personne): ?array
+    {
+        return $this->createQueryBuilder('p')
+           ->andWhere('p.pere = :pere')
+           ->andWhere('p.mere = :mere')
+           ->andWhere('p != :personne')
+           ->setParameter('pere', $personne->getPere())
+           ->setParameter('mere', $personne->getMere())
+           ->setParameter('personne', $personne)
+           ->orderBy('p.dateNaissance', 'ASC')
+           ->getQuery()
+           ->getResult();
+        ;
+    }
+
+
+    public function getEnfants($personne): ?array
+    {
+        return $this->createQueryBuilder('p')
+           ->andWhere('p.pere = :pere')
+           ->orWhere('p.mere = :mere')
+           ->setParameter('pere', $personne)
+           ->setParameter('mere', $personne)
+           ->orderBy('p.dateNaissance', 'ASC')
+           ->getQuery()
+           ->getResult();
+        ;
+    }
 }

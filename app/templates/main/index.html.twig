@@ -4,8 +4,7 @@
 
 	{% for personne in personnes %}
 		<tr>
-			<td>{{ personne.prenom }}</td>
-			<td>{{ personne.nom }}</td>
+			<td><a href="{{ path('personne', {'id': personne.id}) }}">{{ personne }}</a></td>
 		</tr>
 	{% endfor %}
 </table>

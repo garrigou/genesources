@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Personne;
 use App\Entity\Source;
+use App\Repository\EvenementRepository;
 use App\Repository\PersonneRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,10 +34,16 @@ class MainController extends AbstractController
 
     #[Route('/personne/{id}', name: 'personne')]
     #[ParamConverter('personne', class: 'App\Entity\Personne')]
-    public function personne(Personne $personne): Response
+    public function personne(Personne $personne, EvenementRepository $evenementRepository, PersonneRepository $personneRepository): Response
     {
+        $evenements = $evenementRepository->findByPersonne($personne);
+        $fratrie = $personneRepository->getFratrie($personne);
+        $enfants = $personneRepository->getEnfants($personne);
         return $this->render('main/personne.html.twig', [
-            'personne' => $personne
+            'personne' => $personne,
+            'fratrie' => $fratrie,
+            'enfants' => $enfants,
+            'evenements' => $evenements
         ]);
     }
 }
